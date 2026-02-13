@@ -64,7 +64,7 @@ portfolio-risk-optimization/
    pip install -r requirements.txt
 
 3. Run the application:
-   python app.py
+   shiny run --reload app.py
 
 ## Purpose
 
