@@ -1,0 +1,6 @@
+shiny
+yahooquery
+pandas
+numpy
+matplotlib
+scipy
