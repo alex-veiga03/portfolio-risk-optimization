@@ -47,6 +47,14 @@ Return scaling: 252 trading days (annualized)
 - Shiny for Python
 - Yahooquery API
 
+## Project Structure
+
+portfolio-risk-optimization/
+│
+├── app.py              # Main application file
+├── requirements.txt    # Project dependencies
+└── README.md           # Project documentation
+
 ## How to Run Locally
 
 1. Clone the repository:
