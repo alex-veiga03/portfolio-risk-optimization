@@ -86,9 +86,9 @@ def server(input, output, session):
             try:
                 ticker_history = ticker_data.history(start=input.date_range()[0], end=input.date_range()[1])
                 if "adjclose" in ticker_history.loc[ticker].columns:
-                    price_series = ticker_history.loc[ticker]["adjclose"].fillna(method="ffill").fillna(method="bfill")
+                    price_series = ticker_history.loc[ticker]["adjclose"].ffill().bfill()
                 else:
-                    price_series = ticker_history.loc[ticker]["close"].fillna(method="ffill").fillna(method="bfill")
+                    price_series = ticker_history.loc[ticker]["close"].ffill().bfill()
                 prices[ticker] = price_series
             except Exception as e:
                 raise ValueError(f"Error fetching data for {ticker}: {e}")
@@ -223,4 +223,6 @@ def server(input, output, session):
 
 # Run the app
 app = App(app_ui, server)
+
+
 
