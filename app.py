@@ -78,7 +78,7 @@ def optimize_portfolio_nonlinear(mean_returns, cov_matrix, risk_free_rate=0.02, 
 def server(input, output, session):
     @reactive.Calc
     def analyze_portfolio():
-        tickers = [ticker.strip() for ticker in input.tickers().split(",")]
+        tickers = [ticker.strip() for ticker in input.tickers().split(",") if ticker.strip() != ""]
         ticker_data = Ticker(tickers)
         prices = pd.DataFrame()
 
@@ -157,7 +157,7 @@ def server(input, output, session):
         fig, ax = plt.subplots()
         ax.scatter(risk, returns, c="blue", label="Assets")
         for i, ticker in enumerate(tickers):
-            ax.text(risk[i], returns[i], ticker, fontsize=10)
+            ax.text(risk[i], returns.iloc[i], ticker, fontsize=10)
         ax.scatter(result["portfolio_volatility"], result["portfolio_return"], c="red", label="Portfolio", s=50)
         ax.text(result["portfolio_volatility"], result["portfolio_return"], "Portfolio", fontsize=10, color="red")
         ax.set_xlabel("Risk (Volatility)")
@@ -223,6 +223,9 @@ def server(input, output, session):
 
 # Run the app
 app = App(app_ui, server)
+
+
+
 
 
 
