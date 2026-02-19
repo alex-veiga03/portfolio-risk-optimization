@@ -1,6 +1,6 @@
-shiny
+shiny==0.6.0
 yahooquery
-pandas
+pandas>=2.0
 numpy
 matplotlib
 scipy
