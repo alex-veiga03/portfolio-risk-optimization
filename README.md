@@ -1,6 +1,7 @@
 # Portfolio Risk & Return Optimization Platform
 
 Live App: https://alex-veiga03-portfolio-risk-optimization.share.connect.posit.cloud
+
 ![Dashboard Preview](dashboard.png)
 
 A deployed Python-based portfolio optimization application implementing Modern Portfolio Theory and constrained nonlinear optimization.
