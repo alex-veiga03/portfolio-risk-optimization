@@ -1,71 +1,79 @@
 # Portfolio Risk & Return Optimization Platform
 
-## Overview
+Live App: https://alex-veiga03-portfolio-risk-optimization.share.connect.posit.cloud
 
-This project is a Python-based portfolio optimization platform that applies Modern Portfolio Theory (MPT) to analyze risk-return tradeoffs and compute optimal asset allocations under different investment objectives.
+A deployed Python-based portfolio optimization application implementing Modern Portfolio Theory and constrained nonlinear optimization.
 
-The model retrieves historical market data, computes annualized returns and covariance matrices, and performs constrained nonlinear optimization to determine optimal portfolio weights.
+The platform allows users to input asset tickers, analyze historical returns, and optimize portfolio allocations by maximizing Sharpe ratio, maximizing return, or minimizing volatility.
 
-## Key Features
+---
 
-- Historical price retrieval via Yahoo Finance API
-- Annualized return and covariance matrix computation (252 trading days)
+## Features
+
+- Portfolio optimization using SLSQP (SciPy)
 - Sharpe ratio maximization
-- Portfolio variance minimization
-- Expected return maximization
-- Full-investment weight constraints (weights sum to 1, no short-selling)
-- Correlation matrix analysis
-- Interactive Shiny-based analytics dashboard
-- Risk-return tradeoff visualization
-- Cumulative portfolio performance tracking
+- Risk-return visualization
+- Cumulative performance tracking
+- Allocation breakdown via pie chart
+- Correlation heatmap
+- Custom asset and date range input
+- Option to import custom portfolio weights
 
-## Optimization Methodology
+---
 
-The model implements constrained nonlinear optimization using Sequential Least Squares Programming (SLSQP).
-
-### Objective Functions
-
-- Maximize Sharpe Ratio  
-- Minimize Portfolio Variance  
-- Maximize Expected Return  
-
-### Constraints
-
-- Sum of weights = 1  
-- Bounds: 0 ≤ weight ≤ 1  
-
-Risk-free rate assumption: 2%  
-Return scaling: 252 trading days (annualized)
-
-## Technologies Used
+## Tech Stack
 
 - Python
+- Shiny for Python
 - NumPy
 - Pandas
 - SciPy
 - Matplotlib
-- Shiny for Python
-- Yahooquery API
+- yahooquery
 
-## Project Structure
+---
 
-portfolio-risk-optimization/
-│
-├── app.py              # Main application file
-├── requirements.txt    # Project dependencies
-└── README.md           # Project documentation
+## Optimization Framework
 
-## How to Run Locally
+The application computes:
 
-1. Clone the repository:
-   git clone https://github.com/alex-veiga03/portfolio-risk-optimization.git
+- Annualized expected returns  
+- Annualized covariance matrix  
+- Portfolio volatility  
+- Sharpe ratio (with configurable risk-free rate)  
+
+Optimization is performed using constrained nonlinear programming (SLSQP) under full-investment constraints (weights sum to 1, no short selling).
+
+---
+
+## Run Locally
+
+1. Clone the repository
 
 2. Install dependencies:
-   pip install -r requirements.txt
+
+pip install -r requirements.txt
 
 3. Run the application:
-   shiny run --reload app.py
 
-## Purpose
+python -m shiny run app.py
 
-This project was developed to demonstrate quantitative portfolio construction, risk modeling, and applied optimization techniques relevant to investment analytics and asset management roles.
+The app will launch locally at:
+
+http://127.0.0.1:8000
+
+---
+
+## Repository Structure
+
+- `app.py` — Main Shiny application
+- `requirements.txt` — Project dependencies
+- `README.md` — Project documentation
+
+---
+
+## Author
+
+Alexander Veiga  
+Finance & Business Analytics Graduate  
+GitHub: https://github.com/alex-veiga03
